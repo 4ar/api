@@ -1,7 +1,7 @@
-// Require the mongose library
+// Запросим библиотеку mongoose
 const mongoose = require('mongoose');
 
-// Define the note's database schema
+// Определяем схему БД заметки
 const noteSchema = new mongoose.Schema(
   {
     content: {
@@ -14,12 +14,12 @@ const noteSchema = new mongoose.Schema(
     }
   },
   {
-    // Assigns createdAt and updatedAt fields with a Date type
+    // Присваиваем поля createdAt и updatedAt с типом данных
     timestamps: true
   }
 );
 
-// Define the 'Note' model with the schema
+// Определяем модель 'Note' со схемой
 const Note = mongoose.model('Note', noteSchema);
-// Export the module
+
 module.exports = Note;

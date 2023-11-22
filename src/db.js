@@ -1,19 +1,18 @@
-// Require the mongose library
+// Затребуем библиотеку mongoose
 const mongoose = require('mongoose');
-
 module.exports = {
   connect: DB_HOST => {
-    // Use the Mongo driver's updated URL string parser
+    // Используем обновленный парсер строки URL драйвера Mongo
     mongoose.set('useNewUrlParser', true);
-    // Use `findOneAndUpdate()` in place of findAndModify()
+    // Поставим findOneAndUpdate () вместо findAndModify ()
     mongoose.set('useFindAndModify', false);
-    // Use `createIndex()` in place of `ensureIndex()`
+    // Поставим createIndex () вместо sureIndex ()
     mongoose.set('useCreateIndex', true);
-    // Use the new server discovery & monitoring engine
+    // Используем новый механизм обнаружения и мониторинга серверов
     mongoose.set('useUnifiedTopology', true);
-    // Connect to the DB
+    // Подключаемся к БД
     mongoose.connect(DB_HOST);
-    // Log an error if we fail to connect
+    // Выводим ошибку при неуспешном подключении
     mongoose.connection.on('error', err => {
       console.error(err);
       console.log(
@@ -22,7 +21,6 @@ module.exports = {
       process.exit();
     });
   },
-
   close: () => {
     mongoose.connection.close();
   }
