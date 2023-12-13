@@ -1,4 +1,5 @@
-node_modules/
-final/
-solutions/
-/.env
+node_modules
+final
+.env
+solutions
+gitignore1
